@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { ItemStore, ItemExt } from '../store/ItemStore';
-import { Button, Card, Accordion, Container } from 'react-bootstrap';
+import { Button, Card, Accordion, Container, Row, Col } from 'react-bootstrap';
 import { NavBar } from "./NavBar";
 
 // CSS Import

@@ -64,7 +64,5 @@ export class ItemStore {
             type: fruit,
             loans: loans
         }
-
     }
-
 }
