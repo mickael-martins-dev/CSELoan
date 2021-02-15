@@ -1,42 +1,46 @@
 import * as React from 'react';
 import { ItemStore, ItemExt } from '../store/ItemStore';
-import { Navbar, Button, Nav, Form, FormControl } from 'react-bootstrap';
+import { Button, Card, Accordion, Container } from 'react-bootstrap';
+import { NavBar } from "./NavBar";
 
 // CSS Import
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import '../assets/bootstrap-4.6.css';
 
 interface IMainProps {
   itemStore: ItemStore;
 }
 
-export default class Main extends React.Component<IMainProps, {}> {
+export class Main extends React.Component<IMainProps, {}> {
 
   render () {
 
     // Elements to show
     
-    // let elements = this.props.itemStore.getItems().map( (itemExt: ItemExt) => {
-    //   return <h2> {itemExt.item.name} </h2>
-    // });
+    let elements = this.props.itemStore.getItems(). map( (itemExt: ItemExt) => {
+      return <>
+        <Card>
+          <Card.Header>
+            <Accordion.Toggle as={Button} variant="link" eventKey={itemExt.item.index+''}>
+              { itemExt.item.name }
+            </Accordion.Toggle>
+          </Card.Header>
+          <Accordion.Collapse eventKey={itemExt.item.index+''}>
+            <Card.Body>{ itemExt.item.description }</Card.Body>
+          </Accordion.Collapse>
+        </Card>
+      </>
+    });
     
     return (
       <>
-        <Navbar bg="dark" variant="dark">
-          <Navbar.Brand href="#home"> CSE Sercel </Navbar.Brand>
-          <Nav className="mr-auto">
-            <Nav.Link href="#home"> Home </Nav.Link>
-            <Nav.Link href="#features"> Contact </Nav.Link>
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-info"> Search </Button>
-          </Form>
-        </Navbar>
+        <NavBar />
 
-        <div className='container mt-2'>      
-          <Button variant="primary">Primary</Button>
-        </div>
+        <Container className="mt-2">      
+          <Accordion>
+            { elements }
+          </Accordion>
+        </Container>
+
       </>
     );
   }

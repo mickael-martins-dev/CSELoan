@@ -4,7 +4,7 @@ import { DeepstreamClient } from '@deepstream/client';
 
 export interface ItemExt {
     item : Item;
-    record: Record;
+    record?: Record;
 }
 
 export class ItemStore {
@@ -34,7 +34,13 @@ export class ItemStore {
                     });
                 });
             });
-        });     
+        });
+        
+        let itemExt: ItemExt = {
+            item : this.generateDummyData(),
+        }
+
+        this.items.push(itemExt);
     }
 
     public getItems(): ItemExt[] {
@@ -47,14 +53,16 @@ export class ItemStore {
 
         ];
 
+
+        let fruit = <const> 'GAMES';
+
         return {
             index: 0,
             name : "Switch  1",
             description : "Console de jeux Nintendo Switch",
             category : "Console",
-            type : ("GAMES" as TItemType),
+            type: fruit,
             loans: loans
-        
         }
 
     }

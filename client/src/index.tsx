@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
 
-import Main from './view/Main';
+import { Main } from './view/Main';
 
 import { DeepstreamClient } from '@deepstream/client';
 import { ItemStore } from './store/ItemStore';
