@@ -6,7 +6,6 @@ export interface Item {
     index:          number;
     name:           string;
     description:    string;
-    category:       string;
     type:           TItemType;
     loans:          ILoan[];
 }

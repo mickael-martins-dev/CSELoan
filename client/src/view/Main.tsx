@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { ItemStore, ItemExt } from '../store/ItemStore';
-import { Button, Card, Accordion, Container, Row, Col } from 'react-bootstrap';
+import { Button, Card, Accordion, Container, Modal } from 'react-bootstrap';
 import { NavBar } from "./NavBar";
+import { NewItemComponent } from './NewItemModalPage';
 
 // CSS Import
 import '../assets/bootstrap-4.6.css';
@@ -15,7 +16,7 @@ export class Main extends React.Component<IMainProps, {}> {
   render () {
 
     // Elements to show
-    
+  
     let elements = this.props.itemStore.getItems(). map( (itemExt: ItemExt) => {
       return <>
         <Card>
@@ -33,15 +34,22 @@ export class Main extends React.Component<IMainProps, {}> {
     
     return (
       <>
-        <NavBar />
-
         <Container className="mt-2">      
+          <NavBar />
+          
+          <NewItemComponent itemStore={this.props.itemStore}  ></NewItemComponent>
+  
+          <h2> Articles </h2>
+
           <Accordion>
             { elements }
           </Accordion>
+  
         </Container>
 
       </>
     );
   }
-}
+
+  
+} 
