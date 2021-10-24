@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +15,14 @@
     "@deepstream/client": "^5.2.1",
     "@types/flatpickr": "^3.1.2",
     "@types/react": "^17.0.1",
+    "@types/react-dom": "^17.0.10",
     "bootstrap": "^4.6.0",
     "flatpickr": "^4.6.9",
+    "mobx": "^6.3.5",
+    "mobx-react": "^7.2.1",
+    "primeflex": "^2.0.0",
+    "primeicons": "^4.1.0",
+    "primereact": "^6.6.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",

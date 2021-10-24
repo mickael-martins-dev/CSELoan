@@ -1,55 +1,41 @@
 import * as React from 'react';
 import { ItemStore, ItemExt } from '../store/ItemStore';
-import { Button, Card, Accordion, Container, Modal } from 'react-bootstrap';
 import { NavBar } from "./NavBar";
-import { NewItemComponent } from './NewItemModalPage';
-
-// CSS Import
-import '../assets/bootstrap-4.6.css';
+import { Card } from 'primereact/card';
+import { observer } from "mobx-react";
+import { Button } from 'primereact/button';
 
 interface IMainProps {
   itemStore: ItemStore;
 }
 
+@observer
 export class Main extends React.Component<IMainProps, {}> {
 
   render () {
 
     // Elements to show
-  
+
     let elements = this.props.itemStore.getItems(). map( (itemExt: ItemExt) => {
       return <>
-        <Card>
-          <Card.Header>
-            <Accordion.Toggle as={Button} variant="link" eventKey={itemExt.item.index+''}>
-              { itemExt.item.name }
-            </Accordion.Toggle>
-          </Card.Header>
-          <Accordion.Collapse eventKey={itemExt.item.index+''}>
-            <Card.Body>{ itemExt.item.description }</Card.Body>
-          </Accordion.Collapse>
+        <Card title={ itemExt.item.name } subTitle={ itemExt.item.type }>
+
+          <div className="p-grid">
+            <div className="p-col-10"> { itemExt.item.description } </div>
+            <div className="p-col-2"> <Button label="Save"  icon="pi pi-check" /> </div>
+
+          </div>
+
         </Card>
       </>
     });
     
     return (
-      <>
-        <Container className="mt-2">      
-          <NavBar />
-          
-          <NewItemComponent itemStore={this.props.itemStore}  ></NewItemComponent>
-  
-          <h2> Articles </h2>
-
-          <Accordion>
-            { elements }
-          </Accordion>
-  
-        </Container>
-
-      </>
+        <>
+          <NavBar />                      
+          <h2> Articles </h2>  
+          {elements}
+        </>      
     );
   }
-
-  
 } 

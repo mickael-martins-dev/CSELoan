@@ -6,7 +6,7 @@ import { Item }  from '../../common/ItemRepository';
 import * as fs from 'fs';
 import * as path from 'path';
 
-const BACKUP_DIRECTORY  = "../app/";
+const BACKUP_DIRECTORY  = "../app/dist/backup";
 
 // First Part, Start the server
 
@@ -120,14 +120,12 @@ client.record.getList( 'items' ).whenReady( ( list ) => {
     });
 });
 
-
-
+/*
 let item: Item = {
     index : 0,
     name : "Nintendo_Switch_1",
     description: "Nintendo Switch 1",
 };
-
 client.record.getList( 'items' ).whenReady( ( list ) => {
 
     const recordName = `item/${item.name}` 
@@ -138,3 +136,4 @@ client.record.getList( 'items' ).whenReady( ( list ) => {
     console.log("Add entry !");
 
 });
+*/

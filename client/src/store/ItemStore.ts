@@ -1,6 +1,9 @@
 import { Record } from "@deepstream/client/dist/src/record/record";
-import { Item, ILoan, TItemType } from '../../../common/ItemRepository';
+import { Item, ILoan } from '../../../common/ItemRepository';
 import { DeepstreamClient } from '@deepstream/client';
+
+import {observable, computed} from "mobx";
+
 
 export interface ItemExt {
     item : Item;
@@ -8,7 +11,7 @@ export interface ItemExt {
 }
 
 export class ItemStore {
-    private items: ItemExt[] = new Array();
+    @observable private items: ItemExt[] = new Array();
 
     constructor(deepstreamClient: DeepstreamClient) {
     
@@ -50,18 +53,14 @@ export class ItemStore {
     public generateDummyData(): Item {
 
         let loans: ILoan[] = [
-
         ];
-
-
-        let fruit = <const> 'GAMES';
 
         return {
             index: 0,
             name : "Switch  1",
             description : "Console de jeux Nintendo Switch",
             category : "Console",
-            type: fruit,
+            type: "GAMES",
             loans: loans
         }
     }

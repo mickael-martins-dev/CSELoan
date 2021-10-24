@@ -1,6 +1,7 @@
 import { fusebox } from 'fuse-box';
+
 const fuse = fusebox({
-  entry: 'src/index.tsx',
+  entry: 'src/main.tsx',
   target: 'browser',
   devServer: {
     httpServer: { port: 3000 },

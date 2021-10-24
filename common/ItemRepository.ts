@@ -1,12 +1,12 @@
 // import { Record } from "@deepstream/client/dist/src/record/record";
 
 export interface Item {
-    [x: string]: number | string | TItemType | ILoan[];
+    [x: string]: number | string | ILoan[];
 
     index:          number;
     name:           string;
     description:    string;
-    type:           TItemType;
+    type:           string;
     loans:          ILoan[];
 }
 
@@ -18,5 +18,4 @@ export interface ILoan {
     type:                       TLoanType;          // Type
 }
 
-export type TLoanType = {'Reserved', 'Out'};
-export type TItemType = {'GAMES'};
+export type TLoanType = {'Reserved', 'Out', 'Available'};
