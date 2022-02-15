@@ -26,7 +26,7 @@ client.login();
 fs.mkdirSync(BACKUP_DIRECTORY, { recursive: true });
 
 // Create default item in list
-
+/*
 client.record.getList( 'items' ).whenReady( (itemList) => {
 
     if(!fs.existsSync(BACKUP_DIRECTORY)) {
@@ -60,6 +60,7 @@ client.record.getList( 'items' ).whenReady( (itemList) => {
         });
     });
 });
+*/
 
 
 
@@ -120,7 +121,7 @@ client.record.getList( 'items' ).whenReady( ( list ) => {
     });
 });
 
-/*
+
 let item: Item = {
     index : 0,
     name : "Nintendo_Switch_1",
@@ -136,4 +137,4 @@ client.record.getList( 'items' ).whenReady( ( list ) => {
     console.log("Add entry !");
 
 });
-*/
+

@@ -18,4 +18,4 @@ export interface ILoan {
     type:                       TLoanType;          // Type
 }
 
-export type TLoanType = {'Reserved', 'Out', 'Available'};
+export type TLoanType = 'Reserved' | 'Out' | 'Available';
